@@ -63,3 +63,28 @@ class TestSocialFeedBlock(TestCase):
         self.assertEqual(
             soup.find(id='test-feedconfig').find_all('option')[1].text,
             'twitter (@wagtailcms)')
+
+    @feed_response('twitter')
+    def test_get_context_with_parent_context(self, tweets):
+        block = SocialFeedBlock()
+
+        value = {
+            'feedconfig': self.feedconfig,
+            'limit': 3
+        }
+        parent_context = {'has_parent': 'parent context'}
+
+        context = block.get_context(value, parent_context)
+        self.assertEqual(context['has_parent'], parent_context['has_parent'])
+
+    @feed_response('twitter')
+    def test_get_context_without_parent_context(self, tweets):
+        block = SocialFeedBlock()
+
+        value = {
+            'feedconfig': self.feedconfig,
+            'limit': 3
+        }
+
+        context = block.get_context(value)
+        self.assertEqual(context['value'], value)
