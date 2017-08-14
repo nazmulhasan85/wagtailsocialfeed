@@ -49,7 +49,7 @@ class SocialFeedBlock(blocks.StructBlock):
         template = 'wagtailsocialfeed/social_feed_block.html'
 
     def get_context(self, value, parent_context=None):
-        if parent_context is None:
+        if not parent_context:
             context = super(SocialFeedBlock, self).get_context(value)
         else:
             context = super(SocialFeedBlock, self).get_context(value, parent_context)

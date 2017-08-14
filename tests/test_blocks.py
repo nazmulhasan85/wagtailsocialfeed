@@ -86,5 +86,5 @@ class TestSocialFeedBlock(TestCase):
             'limit': 3
         }
 
-        context = block.get_context(value)
+        context = block.get_context(value, parent_context=None)
         self.assertEqual(context['value'], value)
