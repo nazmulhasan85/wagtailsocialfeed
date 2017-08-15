@@ -89,7 +89,7 @@ class TestSocialFeedBlock(TestCase):
             self.assertEqual(context['has_parent'], parent_context['has_parent'])
             # In Wagtail 1.8 Function accepting only one parameter and that's why its raising TypeError
         except TypeError:
-            self.assertTrue(value)
+            self.skipTest(TestSocialFeedBlock)
 
     @feed_response('twitter')
     def test_get_context_without_parent_context(self, tweets):
