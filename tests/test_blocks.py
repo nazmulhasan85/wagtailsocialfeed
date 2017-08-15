@@ -5,12 +5,12 @@ test_blocks
 Tests for `wagtailsocialfeed.blocks`.
 
 In Wagtail 1.8 Function accepting only one parameter and that's why its raising TypeError
-In Combination of Django 1.11 and Wagtail 1.9, Execption occuring in wagtailimage.
+In Combination of Django 1.11 and Wagtail 1.9, `ImportError` Exception is occurring in wagtailimage.
 
 from django.forms.widgets import flatatt
 ImportError: cannot import name flatatt
 
-because its moved to utils
+because it's moved to utils
 
 """
 
